@@ -1,0 +1,7 @@
+2025-05-10 10:00:01 INFO User logged in
+2025-05-10 10:01:15 ERROR Database connection failed
+2025-05-10 10:02:00 INFO Page loaded in 12ms
+2025-05-10 10:03:45 WARNING Memory usage at 85%
+2025-05-10 10:04:12 ERROR Out of memory error on node 3
+2025-05-10 10:05:00 INFO User logged out
+2025-05-10 10:06:22 ERROR Network timeout on port 443
