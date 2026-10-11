@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sidecar-demo
+spec:
+  containers:
+  - name: app-container
+    image: alpine
+    command:
+    - /bin/sh
+    - -c
+    - "while true; do echo \"$(date) Rakesh Log\" >> /var/log/app.log; sleep 5; done"
+    volumeMounts:
+    - name: shared-data
+      mountPath: /var/log
+
+  - name: sidecar-container
+    image: alpine
+    command:
+    - /bin/sh
+    - -c
+    - "tail -f /var/log/app.log"
+    volumeMounts:
+    - name: shared-data
+      mountPath: /var/log
+
+  volumes:
+  - name: shared-data
+    emptyDir: {}
