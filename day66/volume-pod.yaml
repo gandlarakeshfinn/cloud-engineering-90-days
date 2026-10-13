@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-demo-pod
+spec:
+  containers:
+  - name: app-container
+    image: alpine
+    command: ["/bin/sh", "-c", "sleep 3600"]
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/config
+    - name: secret-volume
+      mountPath: /etc/secrets
+      readOnly: true
+  volumes:
+  - name: config-volume
+    configMap:
+      name: app-config
+  - name: secret-volume
+    secret:
+      secretName: app-secret
