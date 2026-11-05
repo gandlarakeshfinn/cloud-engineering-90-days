@@ -1,0 +1,25 @@
+replicaCount: 2
+image:
+  repository: nginx
+  tag: stable
+service:
+  port: 80
+
+# Redis Dependency Overrides
+redis:
+  architecture: standalone
+  master:
+    image:
+      repository: redis
+      tag: 7.0-alpine
+  auth:
+    enabled: false
+apiKey: "rakesh-secret-12345"
+redis:
+  enabled: true
+
+config:
+  appName: "Rakesh Cloud App"
+  logLevel: "info"
+  environment: "dev"
+  welcomeMessage: "Hello from ConfigMap!"
