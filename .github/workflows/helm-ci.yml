@@ -1,0 +1,33 @@
+name: Helm CI
+
+on:
+  push:
+    paths:
+      - 'day80/**'
+  pull_request:
+    paths:
+      - 'day80/**'
+
+jobs:
+  lint-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.14.0
+
+      - name: Lint Helm Chart
+        run: helm lint day80/rakesh-app-chart
+
+      - name: Package Helm Chart
+        run: helm package day80/rakesh-app-chart
+
+      - name: Upload Chart Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rakesh-helm-chart
+          path: '*.tgz'
