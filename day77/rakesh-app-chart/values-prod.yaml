@@ -1,0 +1,10 @@
+replicaCount: 3
+
+image:
+  repository: nginx
+  tag: stable
+
+redis:
+  enabled: false
+
+apiKey: "prod-key-secure-999"
