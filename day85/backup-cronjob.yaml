@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rakesh-backup-job
+  namespace: dev
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: backup
+            image: busybox
+            command:
+            - /bin/sh
+            - -c
+            - echo "Backup completed at Thu Nov  5 07:47:30 UTC 2026 by Rakesh" && sleep 10
+          restartPolicy: OnFailure
