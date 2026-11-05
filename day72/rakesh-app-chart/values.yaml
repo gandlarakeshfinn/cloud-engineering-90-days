@@ -4,3 +4,13 @@ image:
   tag: stable
 service:
   port: 80
+
+# Redis Dependency Overrides
+redis:
+  architecture: standalone
+  master:
+    image:
+      repository: redis
+      tag: 7.0-alpine
+  auth:
+    enabled: false

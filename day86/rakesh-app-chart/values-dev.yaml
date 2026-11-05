@@ -1,0 +1,4 @@
+replicaCount: 1
+apiKey: "dev-secret-123"
+config:
+  environment: "development"

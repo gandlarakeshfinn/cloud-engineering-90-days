@@ -1,0 +1,29 @@
+replicaCount: 1
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "stable"
+
+service:
+  type: ClusterIP
+  port: 80
+
+apiKey: "default-secret-key"
+
+# Fix for the error:
+redis:
+  enabled: false
+
+config:
+  appName: "Rakesh Cloud App"
+  logLevel: "info"
+  environment: "dev"
+  welcomeMessage: "Hello from ConfigMap!"
+
+resources:
+  requests:
+    memory: "32Mi"
+    cpu: "50m"
+  limits:
+    memory: "64Mi"
+    cpu: "100m"
