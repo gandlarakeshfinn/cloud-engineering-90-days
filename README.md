@@ -147,5 +147,6 @@ Ethereum (ETH / ERC-20):
 👤 Author & Socials
 Maintainer: Rakesh Gandla
 GitHub: @gandlarakeshfinn
+
 📜 License
 This project is licensed under the MIT License.`
